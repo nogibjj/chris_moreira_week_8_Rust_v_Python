@@ -1,0 +1,10 @@
+C:\Users\chris\Downloads\IDS706\chris_moreira_week_8_Rust_v_Python\sqlite\target\debug\deps\libahash-3abe4a9863346ca8.rmeta: C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src/lib.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\convert.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\fallback_hash.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\operations.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\random_state.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\specialize.rs
+
+C:\Users\chris\Downloads\IDS706\chris_moreira_week_8_Rust_v_Python\sqlite\target\debug\deps\ahash-3abe4a9863346ca8.d: C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src/lib.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\convert.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\fallback_hash.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\operations.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\random_state.rs C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\specialize.rs
+
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src/lib.rs:
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\convert.rs:
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\fallback_hash.rs:
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\operations.rs:
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\random_state.rs:
+C:\Users\chris\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ahash-0.8.11\src\specialize.rs:

@@ -1,3 +1,4 @@
+import time
 from mylib.extract import extract
 from mylib.transform_load import load
 from mylib.query import query_create, query_read, query_update, query_delete
@@ -5,7 +6,7 @@ from mylib.query import query_create, query_read, query_update, query_delete
 # Extract
 extract()
 
-# transform & load
+# Transform & Load
 load()
 
 # Query
@@ -16,12 +17,25 @@ query_delete()
 
 
 def main_results():
+    # Initialize results dictionary
     results = {
         "extract_to": extract(),
         "transform_db": load(),
-        "create": query_create(),
-        "read": query_read(),
-        "update": query_update(),
-        "delete": query_delete(),
     }
+
+    # Time the query_create operation
+    start_time = time.time()
+    results["create"] = query_create()
+    create_duration = time.time() - start_time
+    print(f"query_create execution time: {create_duration:.4f} seconds")
+
+    # Continue with other queries
+    results["read"] = query_read()
+    results["update"] = query_update()
+    results["delete"] = query_delete()
+
     return results
+
+
+if __name__ == "__main__":
+    main_results()

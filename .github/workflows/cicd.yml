@@ -1,4 +1,4 @@
-name: CI
+name: Python CI
 on:
   push:
     branches: [ "main" ]
@@ -9,15 +9,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: install packages
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11.5'
+
+      - name: Install dependencies
         run: make install
-      - name: lint
+
+      - name: Make lint
         run: make lint
-      - name: test
-        run: make test
+        
       - name: format
         run: make format
-      - name: deploy
-        run: make deploy
+
+      - name: Run Main File
+        run: python main.py
+
+      - name: Run tests
+        run: make test
