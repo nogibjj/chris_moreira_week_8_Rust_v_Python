@@ -6,10 +6,10 @@ test-python:
 	python -m pytest -vv --cov=main --cov=mylib test_*.py
 
 format-python:
-	black *.py mylib/*.py
+	black main.py mylib/*.py
 
 lint-python:
-	ruff check *.py mylib/*.py
+	ruff check main.py mylib/*.py
 
 # Rust tasks
 rust-version:
