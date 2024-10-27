@@ -2,3 +2,8 @@ __pycache__
 sqlite/SpotifyDB.db
 sqlite/target/
 images
+# Ignore all .jpg files
+*.jpg
+
+# Ignore all .png files
+*.png
