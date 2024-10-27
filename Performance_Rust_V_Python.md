@@ -5,10 +5,10 @@ This is a documentation that assesses the time performance improvements seen in 
 This assessment focuses solely on the "Create a table" function. Below is computed how long it took to perform this in Python Vs. Rust -- 
 
 Here is how it takes to run the query_create fucntion with rust:
-![alt text](image-3.png)
+![alt text](images/rust_create_time.jpg)
 
 Here is how long it takes to run the query_create function with Python:
-![alt text](image-2.png)
+![alt text](images/Python_Create_Time.jpg)
 
 
 Python: The table creation took approximately 0.0065 seconds (or 6.5 milliseconds).
