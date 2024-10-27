@@ -1,7 +1,7 @@
 # Rust Vs. Python Perofrmance Project
 # Status Badge for Sucessful Run
 [![Python CI](https://github.com/nogibjj/chris_moreira_week_8_Rust_v_Python/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/chris_moreira_week_8_Rust_v_Python/actions/workflows/cicd.yml)
-
+[![Rust CI](https://github.com/nogibjj/chris_moreira_week_8_Rust_v_Python/actions/workflows/rust_cicd.yml/badge.svg)](https://github.com/nogibjj/chris_moreira_week_8_Rust_v_Python/actions/workflows/rust_cicd.yml)
 # File Structure 
 ![alt text](image-1.png)
 
