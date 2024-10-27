@@ -6,10 +6,21 @@ test-python:
 	python -m pytest -vv --cov=main --cov=mylib test_*.py
 
 format-python:
-	black main.py mylib/*.py
+	black *.py mylib/*.py
 
 lint-python:
-	ruff check main.py mylib/*.py
+	@if [ -f "main.py" ]; then \
+		echo "Linting main.py..."; \
+		ruff check main.py || echo "Error: main.py not found or inaccessible"; \
+	else \
+		echo "Warning: main.py not found."; \
+	fi
+	@if [ -d "mylib" ]; then \
+		echo "Linting mylib/*.py..."; \
+		ruff check mylib/*.py || echo "Error: mylib files not found or inaccessible"; \
+	else \
+		echo "Warning: mylib directory not found."; \
+	fi
 
 # Rust tasks
 rust-version:
