@@ -1,23 +1,36 @@
-use sqlite::{extract, create_table, load_data_from_csv, query_create, query_read, query_update, query_delete};
+use sqlite::{
+    extract, create_table, load_data_from_csv, query_create,
+    query_read, query_update, query_delete,
+};
 use rusqlite::Connection;
 use std::time::Instant;
 
-fn main_results(conn: &Connection) -> Result<(), Box<dyn std::error::Error>> {
+fn main_results(
+    conn: &Connection,
+) -> Result<(), Box<dyn std::error::Error>> {
     // Ensure the data directory exists
     std::fs::create_dir_all("../data")?;
 
-    let extract_result = extract(
-        "https://raw.githubusercontent.com/nogibjj/chris_moreira_week5_python_sql_db_project/main/data/Spotify_Most_Streamed_Songs.csv",
-        "../data/Spotify_Most_Streamed_Songs.csv" // Corrected path
+    let url = concat!(
+        "https://raw.githubusercontent.com/nogibjj/",
+        "chris_moreira_week5_python_sql_db_project/",
+        "main/data/Spotify_Most_Streamed_Songs.csv"
     );
+    let extract_result = extract(url, "../data/Spotify_Most_Streamed_Songs.csv");
     println!("Extract Result: {:?}", extract_result);
 
     let start_time = Instant::now();
     let create_result = create_table(&conn);
     let create_duration = start_time.elapsed();
-    println!("Create Table Result: {:?}, Duration: {:?}", create_result, create_duration);
+    println!(
+        "Create Table Result: {:?}, Duration: {:?}",
+        create_result, create_duration
+    );
 
-    let load_result = load_data_from_csv(&conn, "../data/Spotify_Most_Streamed_Songs.csv"); // Corrected path
+    let load_result = load_data_from_csv(
+        &conn,
+        "../data/Spotify_Most_Streamed_Songs.csv",
+    );
     println!("Load Result: {:?}", load_result);
 
     let create_query_result = query_create(&conn);

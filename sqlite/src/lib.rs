@@ -47,23 +47,32 @@ pub fn create_table(conn: &Connection) -> Result<()> {
     Ok(())
 }
 
-pub fn load_data_from_csv(conn: &Connection, file_path: &str) -> Result<(), Box<dyn Error>> {
+pub fn load_data_from_csv(
+    conn: &Connection,
+    file_path: &str,
+) -> Result<(), Box<dyn Error>> {
     let file = File::open(file_path)?;
     let mut rdr = ReaderBuilder::new().from_reader(file);
     let insert_query = "INSERT INTO SpotifyDB (
-        track_name, artist_name, artist_count, released_year, released_month, released_day, 
-        in_spotify_playlists, in_spotify_charts, streams, in_apple_playlists, key, mode, 
-        danceability_percent, valence_percent, energy_percent, acousticness_percent, 
-        instrumentalness_percent, liveness_percent, speechiness_percent, cover_url
+        track_name, artist_name, artist_count, released_year,
+        released_month, released_day, in_spotify_playlists,
+        in_spotify_charts, streams, in_apple_playlists, key, mode,
+        danceability_percent, valence_percent, energy_percent,
+        acousticness_percent, instrumentalness_percent, 
+        liveness_percent, speechiness_percent, cover_url
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     for result in rdr.records() {
         let record = result?;
-        conn.execute(insert_query, params![
-            &record[0], &record[1], &record[2], &record[3], &record[4], &record[5], 
-            &record[6], &record[7], &record[8], &record[9], &record[10], &record[11], 
-            &record[12], &record[13], &record[14], &record[15], &record[16], &record[17], 
-            &record[18], &record[19]
-        ])?;
+        conn.execute(
+            insert_query,
+            params![
+                &record[0], &record[1], &record[2], &record[3],
+                &record[4], &record[5], &record[6], &record[7],
+                &record[8], &record[9], &record[10], &record[11],
+                &record[12], &record[13], &record[14], &record[15],
+                &record[16], &record[17], &record[18], &record[19]
+            ],
+        )?;
     }
     println!("Data loaded successfully from '{}'", file_path);
     Ok(())
@@ -71,23 +80,31 @@ pub fn load_data_from_csv(conn: &Connection, file_path: &str) -> Result<(), Box<
 
 pub fn query_create(conn: &Connection) -> Result<()> {
     let sql = "INSERT INTO SpotifyDB (
-        track_name, artist_name, artist_count, released_year, released_month, released_day, 
-        in_spotify_playlists, in_spotify_charts, streams, in_apple_playlists, key, mode, 
-        danceability_percent, valence_percent, energy_percent, acousticness_percent, 
-        instrumentalness_percent, liveness_percent, speechiness_percent, cover_url
+        track_name, artist_name, artist_count, released_year,
+        released_month, released_day, in_spotify_playlists,
+        in_spotify_charts, streams, in_apple_playlists, key, mode,
+        danceability_percent, valence_percent, energy_percent,
+        acousticness_percent, instrumentalness_percent, 
+        liveness_percent, speechiness_percent, cover_url
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    conn.execute(sql, params![
-        "Sample Song", "Sample Artist", 1, 2024, 10, 3, 400, 100, 150000000, 
-        200, "C#", "Major", 60, 70, 80, 10, 0, 20, 5, "https://sampleurl.com"
-    ])?;
+    conn.execute(
+        sql,
+        params![
+            "Sample Song", "Sample Artist", 1, 2024, 10, 3, 400, 100,
+            150000000, 200, "C#", "Major", 60, 70, 80, 10, 0, 20, 5,
+            "https://sampleurl.com"
+        ],
+    )?;
     println!("Record inserted successfully.");
     Ok(())
 }
 
 pub fn query_read(conn: &Connection) -> Result<()> {
     let mut stmt = conn.prepare("SELECT * FROM SpotifyDB LIMIT 10")?;
-    let rows = stmt.query_map([], |row| Ok((row.get::<_, i32>(0)?, row.get::<_, String>(1)?)))?;
+    let rows = stmt.query_map([], |row| {
+        Ok((row.get::<_, i32>(0)?, row.get::<_, String>(1)?))
+    })?;
     for row in rows {
         println!("{:?}", row?);
     }
@@ -95,7 +112,10 @@ pub fn query_read(conn: &Connection) -> Result<()> {
 }
 
 pub fn query_update(conn: &Connection) -> Result<()> {
-    conn.execute("UPDATE SpotifyDB SET artist_name = 'Chris' WHERE id = 3", [])?;
+    conn.execute(
+        "UPDATE SpotifyDB SET artist_name = 'Chris' WHERE id = 3",
+        [],
+    )?;
     println!("Record updated successfully.");
     Ok(())
 }
