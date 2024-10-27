@@ -3,42 +3,7 @@
 
 
 # File Structure 
-chris_moreira_week_8_Rust_v_Python/
-├── .devcontainer/
-│   ├── devcontainer.json
-│   └── Dockerfile
-├── .github/
-│   └── workflows/
-│       ├── cicd.yml
-│       └── rust_cicd.yml
-├── data/
-│   └── Spotify_Most_Streamed_Songs.csv
-├── mylib/
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── extract.py
-│   ├── query.py
-│   └── transform_load.py
-├── sqlite/
-│   ├── data/
-│   ├── src/
-│   │   ├── test/test.rs
-│   │   ├── lib.rs
-│   │   └── main.rs
-│   ├── target/
-│   ├── Cargo.lock
-│   ├── Cargo.toml
-│   └── SpotifyDB.db
-├── .gitignore
-├── Dockerfile.json
-├── main.py
-├── Makefile
-├── Performance_Rust_V_Python.md
-├── README.md
-├── requirements.txt
-├── setup.sh
-└── test_main.py
-
+![alt text](image-1.png)
 
 
 # Project Purpose
