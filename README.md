@@ -24,5 +24,17 @@ Note in the main.rs file and main.py file we calculate the time it takes for:
 
 As a conclusion, it was observed that Rust is 9X more efficient than Python when running a CREATE function. 
 
+Here are a few operations to make this peoject compatible with rust -- 
+```bash
+#Build the project
+cargo build
+
+# Run the project
+cargo run
+
+# Make A new project
+cargo new
+
+```
 # Data Flow map for this Project Experiment
 ![alt text](image.png)
